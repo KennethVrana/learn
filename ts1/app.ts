@@ -1,20 +1,25 @@
 ﻿
 
+
 class Greeter {
     element: HTMLElement;
     span: HTMLElement;
     timerToken: number;
+    message: string = "The time is: ";
 
     constructor(element: HTMLElement) {
+
         this.element = element;
-        this.element.innerHTML += "The time is: ";
+        this.element.innerHTML += this.message;
         this.span = document.createElement('span');
         this.element.appendChild(this.span);
         this.span.innerText = new Date().toUTCString();
     }
 
     start() {
-        this.timerToken = setInterval(() => this.span.innerHTML = new Date().toUTCString(), 500);
+        this.timerToken = setInterval(() =>
+            this.span.innerHTML = new Date().toUTCString()
+            , 500);
     }
 
     stop() {
